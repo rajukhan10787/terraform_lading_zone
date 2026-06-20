@@ -1,37 +1,29 @@
-name: raju_Ci_rajubhai_raju_bhaoiiii
+name: Raju_Terraform
 
 on:
   push:
     branches:
       - main
-      - 'feature/*'
-  #workflow_dispatch:
 
 permissions:
- id-token: write
- contents: read
+  id-token: write
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: main
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
+      - uses: actions/checkout@v4
+
       - uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+      - uses: hashicorp/setup-terraform@v2
 
-      - name: Terraform Init
-        run: terraform init
+      - run: terraform init
 
-      - name: terrafrom
-        run: plan 
-        
+      - run: terraform plan
