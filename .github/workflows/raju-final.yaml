@@ -1,11 +1,11 @@
-name: raju_Ci
+name: raju_Ci_rajubhai_raju_bhaoiiii
 
 on:
   push:
-     branches:
-       - main
-       - 'feature/*'
-  workflow_dispatch:
+    branches:
+      - main
+      - 'feature/*'
+  #workflow_dispatch:
 
 jobs:
   build:
