@@ -1,10 +1,10 @@
 name: raju_Ci
 
 on:
-  #push:
-    branches:
-      - main
-      - 'feature/*'
+  # #push:
+  #   branches:
+  #     - main
+  #     - 'feature/*'
    workflow_dispatch:
 
 jobs:
