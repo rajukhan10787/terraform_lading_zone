@@ -1,0 +1,22 @@
+name: raju_Ci_rajubhai_raju_bhaoiiii
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: terraform init
