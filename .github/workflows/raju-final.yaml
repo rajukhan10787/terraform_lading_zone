@@ -20,3 +20,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: tere namm
+        run: ls -l 
+        
