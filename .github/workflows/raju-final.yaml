@@ -5,25 +5,31 @@ on:
     branches:
       - main
 
-# permissions:
-#   id-token: write
-#   contents: read
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Bhaiyyaji pahle checkout krona
+        uses: actions/checkout@v4
 
-      - uses: azure/login@v2
+      - name: Bhaiyyaji pahle login karo na
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - uses: hashicorp/setup-terraform@v2
 
-      - run: terraform init
-
-      - run: terraform plan
+      - name: bhaiyya ji tf download kar na 
+        uses: hashicorp/setup-terraform@v2
+      
+      - name: bhaiyya ji init karo na 
+        run: terraform init
+     
+      - name: bhaiyya ji init karo na 
+        run: terraform plan
