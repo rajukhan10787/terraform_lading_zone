@@ -28,7 +28,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
       
       - name: bhaiyya ji init karo na 
-        uses: terraform init
+        run: terraform init
      
       - name: bhaiyya ji init & apply karo na 
         run: |
