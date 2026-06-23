@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Bhaiyyaji pahle checkout krona
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Bhaiyyaji pahle login karo na
         uses: azure/login@v2
@@ -29,7 +28,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
       
       - name: bhaiyya ji init karo na 
-        run: terraform init
+        uses: terraform init
      
       - name: bhaiyya ji init & apply karo na 
         run: |
