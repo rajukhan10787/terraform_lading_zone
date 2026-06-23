@@ -31,5 +31,9 @@ jobs:
       - name: bhaiyya ji init karo na 
         run: terraform init
      
-      - name: bhaiyya ji init karo na 
-        run: terraform plan
+      - name: bhaiyya ji init & apply karo na 
+        run: |
+         terraform plan
+         terraform  apply -- auto-approve
+         terraform  destroy
+         
