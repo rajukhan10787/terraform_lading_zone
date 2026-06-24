@@ -12,22 +12,32 @@ jobs:
          tenant-id: 09e26ded-cbf9-455c-85f2-6c98cadf9e98
          subscription-id: 38458014-5b36-4aa7-8bdd-895cadc2c233  
          
-      - name: Run a multi-line script
+      - name: install_terraform
         uses: hashicorp/setup-terraform@v2.0.3
-      - name: terraform_init
+      - name: terraform_build
         run: |
            terraform init 
            terraform  validate
            terraform fmt
            terraform plan
            
-          
-jobs: 
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: Azure/login@v3
+        with :
+         client-id: d2123100-1c18-4000-aede-05aa7581a992
+         tenant-id: 09e26ded-cbf9-455c-85f2-6c98cadf9e98
+         subscription-id: 38458014-5b36-4aa7-8bdd-895cadc2c233  
+         
+      - name: Run a multi-line script
+        uses: hashicorp/setup-terraform@v2.0.3
       - name: terraform_init
-        run: terraform apply -- auto-approve
-        run: terraform destroy -- auto-approve
+        run: terraform init  
+      - name: terraform_apply
+        run: terraform apply --auto-approve
+      - name: terraform_apply
+        run: terraform destroy --auto-approve
          
           
